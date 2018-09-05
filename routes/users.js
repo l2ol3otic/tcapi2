@@ -3,6 +3,8 @@ var router = express.Router();
 var sql = require('mssql');
 var TYPES = require('tedious').TYPES;
 
+
+
 var Connection = require('tedious').Connection;
 var Request = require('tedious').Request;
 
@@ -17,7 +19,6 @@ router.get('/tid', function (req, res, next) {
 router.get('/tid2', function (req, res, next) {
   ConnData()
   res.send(ConnData())
- 
 });
 
 function ConnData() {
@@ -44,6 +45,7 @@ function ConnData() {
       executeStatement();
     }
   });
+
   function executeStatement() {
     var sd = "admin"
     var sqlcommand = "SELECT * FROM userTest WHERE username = @username"
@@ -72,5 +74,13 @@ function ConnData() {
   }
   return x;
   
+}
+
+function CreatePDFrequest(){
+
+  
+
+
+
 }
 module.exports = router;
