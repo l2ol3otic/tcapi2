@@ -4,6 +4,7 @@ const PDFDocument = require('pdfkit')
 const HummusRecipe = require('hummus-recipe');
 const pdfFiller = require('pdffiller-stream');
 
+
 router.post('/', (req, res) => {
 
     console.log(req.body)
@@ -39,21 +40,11 @@ router.post('/1', (req, res) => {
 })
 
 router.post('/2', (req, res) => {
-
-    var sourcePDF = "./pdf/Testpage.pdf";
-    var data = {
-        "ID": "0001",
-        "NAME": "Doe",
-    };
-
-    pdfFiller.fillForm(sourcePDF, data)
-        .toFile('./pdf/Conpletepage.pdf')
-        .then((outputStream) => {
-            // use the outputStream here;
-            // will be instance of stream.Readable
-        }).catch((err) => {
-            console.log("ERROR 88888", err);
-        });
+    //const FillFormPDF = require('../pdf/pdf.js')
+    //res.send(FillFormPDF.FillFormPDF())
+    const GetAuthen = require('../Auth/Authentication.js')
+    var testdata = GetAuthen.PrepareVerify("cat")
+    res.send(testdata)
 })
 
 router.post('/3', (req, res) => {
@@ -66,7 +57,7 @@ router.post('/3', (req, res) => {
 		});
             
     var data = {
-        "Given Name Text Box": "Eric2889",
+        "Given Name Text Box": "Eric28890",
         "Family Name Text Box": "Jones",
         "House nr Text Box": "someplace",
         "Address 1 Text Box": "somewhere 1",
