@@ -4,9 +4,6 @@ const PDFDocument = require('pdfkit')
 const HummusRecipe = require('hummus-recipe');
 const pdfFiller = require('pdffiller-stream');
 
-
-
-
 router.post('/', (req, res) => {
 
     console.log(req.body)
@@ -89,8 +86,6 @@ router.post('/3', (req, res) => {
 
     fillForm(writer,data);
     writer.end();
-
-    
 
 })
 
